@@ -10,17 +10,20 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Text("Uma palavra em ingles"),
-
-            BigCard(appState: appState),
-
-            ElevatedButton(
-              onPressed: appState.gerarNovaPalavra, 
-              child: Text("Próxima palavra")
-            )
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Uma palavra em ingles"),
+              
+              BigCard(appState: appState),
+          
+              ElevatedButton(
+                onPressed: appState.gerarNovaPalavra, 
+                child: Text("Próxima palavra")
+              )
+            ],
+          ),
         ),
       ),
     );

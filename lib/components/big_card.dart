@@ -14,14 +14,21 @@ class BigCard extends StatelessWidget {
     final tema = Theme.of(context);
     
     final estilo = tema.textTheme.displayLarge!.copyWith(
-      color: tema.colorScheme.onPrimary
+      color: tema.colorScheme.onPrimary,
+      fontWeight: FontWeight.w100
     );
+    
+    var palavra = appState.palavraAtual;
 
     return Card(
       color: tema.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Text(appState.palavraAtual.asLowerCase, style: estilo),
+        child: Text(
+          palavra.asLowerCase, 
+          style: estilo, 
+          semanticsLabel: "${palavra.first} ${palavra.second}"
+        ),
       ),
     );
   }
