@@ -36,4 +36,14 @@ class MainAppState extends ChangeNotifier{
     notifyListeners();
   }
 
+  var palavrasFavoritas = <WordPair>[];
+  void marcarComoFavorito(){
+    if(palavrasFavoritas.contains(palavraAtual)){
+      palavrasFavoritas.remove(palavraAtual);
+    } else {
+      palavrasFavoritas.add(palavraAtual);
+    }
+    notifyListeners();
+  }
+
 }
