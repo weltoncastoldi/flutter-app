@@ -27,38 +27,42 @@ class _HomePageState extends State<HomePage> {
         }
       default: throw UnimplementedError();
     }
-    return Scaffold(
-      body: Row(
-        children: [
-          SafeArea(
-            child: NavigationRail(
-              extended: false,
-              selectedIndex: menuSelecionado,
-              onDestinationSelected: (selecionado) {
-                setState(() {
-                  menuSelecionado = selecionado;
-                });
-              },
-              destinations: [
-                NavigationRailDestination(
-                  icon: Icon(Icons.home),
-                  label: Text("Home"),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Scaffold(
+          body: Row(
+            children: [
+              SafeArea(
+                child: NavigationRail(
+                  extended: constraints.maxWidth >= 600,
+                  selectedIndex: menuSelecionado,
+                  onDestinationSelected: (selecionado) {
+                    setState(() {
+                      menuSelecionado = selecionado;
+                    });
+                  },
+                  destinations: [
+                    NavigationRailDestination(
+                      icon: Icon(Icons.home),
+                      label: Text("Home"),
+                    ),
+                    NavigationRailDestination(
+                      icon: Icon(Icons.favorite),
+                      label: Text("Favoritos"),
+                    ),
+                  ],
                 ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.favorite),
-                  label: Text("Favoritos"),
+              ),
+              Expanded(
+                child: Container(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  child: pagina,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Expanded(
-            child: Container(
-              color: Theme.of(context).colorScheme.primaryContainer,
-              child: pagina,
-            ),
-          ),
-        ],
-      ),
+        );
+      }
     );
   }
 }
