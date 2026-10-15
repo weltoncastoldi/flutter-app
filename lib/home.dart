@@ -3,7 +3,15 @@ import 'package:flutterapp/components/big_card.dart';
 import 'package:flutterapp/main.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  var menuSelecionado = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,8 +20,12 @@ class HomePage extends StatelessWidget {
           SafeArea(
             child: NavigationRail(
               extended: false,
-              selectedIndex: 0,
-              onDestinationSelected: (value) => {print(value)},
+              selectedIndex: menuSelecionado,
+              onDestinationSelected: (selecionado) {
+                setState(() {
+                  menuSelecionado = selecionado;
+                });
+              },
               destinations: [
                 NavigationRailDestination(
                   icon: Icon(Icons.home),
