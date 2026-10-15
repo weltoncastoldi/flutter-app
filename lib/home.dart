@@ -109,8 +109,27 @@ class TelaHome extends StatelessWidget {
 }
 
 class TelaFavoritos extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    var appState = context.watch<MainAppState>();
+
+    if(appState.palavrasFavoritas.isEmpty){
+      return Text("Nenhum favorito localizado");
+    }
+
+    return ListView(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(15),
+          child: Text("Você tem ${appState.palavrasFavoritas.length} favoritos"),
+        ),
+        for(var item in appState.palavrasFavoritas)
+          ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text(item.asLowerCase),
+          )        
+      ],
+    );
   }
 }
