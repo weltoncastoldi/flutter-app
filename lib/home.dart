@@ -9,11 +9,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   var menuSelecionado = 0;
 
   @override
   Widget build(BuildContext context) {
+    Widget pagina;
+    switch (menuSelecionado) {
+      case 0:
+        {
+          pagina = TelaHome();
+          break;
+        }
+      case 1:
+        {
+          pagina = TelaFavoritos();
+          break;
+        }
+      default: throw UnimplementedError();
+    }
     return Scaffold(
       body: Row(
         children: [
@@ -41,7 +54,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: Container(
               color: Theme.of(context).colorScheme.primaryContainer,
-              child: GeradorPage(),
+              child: pagina,
             ),
           ),
         ],
@@ -50,7 +63,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class GeradorPage extends StatelessWidget {
+class TelaHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MainAppState>();
@@ -88,5 +101,12 @@ class GeradorPage extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class TelaFavoritos extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Placeholder();
   }
 }
