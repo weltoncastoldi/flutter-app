@@ -46,4 +46,10 @@ class MainAppState extends ChangeNotifier{
     notifyListeners();
   }
 
+  void removerFavorito(WordPair item){
+    if(palavrasFavoritas.contains(item)){
+      palavrasFavoritas.remove(item);
+      notifyListeners();
+    }
+  }
 }

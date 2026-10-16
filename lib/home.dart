@@ -128,6 +128,7 @@ class TelaFavoritos extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.favorite),
             title: Text(item.asLowerCase),
+            onTap: () => appState.removerFavorito(item)
           )        
       ],
     );
