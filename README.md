@@ -19,19 +19,6 @@ Sua missão é analisar o código de referência, identificar as diferenças e a
 3. **Implemente:** adapte seu código para reproduzir as animações observadas.
 4. **Teste:** verifique se a geração de palavras e as funcionalidades de favoritos continuam funcionando corretamente.
 
-## 📝 Entrega
-
-- Código-fonte atualizado do projeto.
-- Captura de tela ou gravação demonstrando o resultado.
-- Breve explicação sobre as diferenças identificadas e as alterações realizadas.
-
-## ⭐ Critérios de avaliação
-
-- Identificação e compreensão das diferenças entre os códigos.
-- Implementação das animações de acordo com a referência.
-- Preservação das funcionalidades existentes.
-- Capacidade de explicar as alterações realizadas.
-
 ## 💡 Dica
 
 Investigue os widgets e as propriedades responsáveis pelas animações antes de alterar seu código. O objetivo é aprender a compreender e adaptar uma implementação existente, e não apenas reproduzir o resultado visual.
